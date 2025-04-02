@@ -1,12 +1,11 @@
-import React from 'react';
-import { StyleProp, StyleSheet, Text, TextStyle, ViewStyle } from 'react-native';
-import Touchable, { PlatformTouchableProps } from 'react-native-platform-touchable';
+import React, { useState } from 'react';
+import { StyleProp, StyleSheet, Text, TextStyle, ViewStyle, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 import { useTheme } from '../../theme';
 import sharedStyles from '../../views/Styles';
 import ActivityIndicator from '../ActivityIndicator';
 
-interface IButtonProps extends PlatformTouchableProps {
+interface IButtonProps extends TouchableOpacityProps {
 	title: string;
 	onPress: () => void;
 	type?: 'primary' | 'secondary';
@@ -17,6 +16,9 @@ interface IButtonProps extends PlatformTouchableProps {
 	style?: StyleProp<ViewStyle> | StyleProp<ViewStyle>[];
 	styleText?: StyleProp<TextStyle> | StyleProp<TextStyle>[];
 	small?: boolean;
+	pressedStyle?: StyleProp<ViewStyle>;
+	pressedTextStyle?: StyleProp<TextStyle>;
+	disabled?: boolean;
 }
 
 const styles = StyleSheet.create({
@@ -44,7 +46,10 @@ const styles = StyleSheet.create({
 		lineHeight: 18
 	},
 	disabled: {
-		opacity: 0.3
+		opacity: 1
+	},
+	disabledText: {
+		opacity: 1
 	}
 });
 
@@ -60,11 +65,14 @@ const Button: React.FC<IButtonProps> = ({
 	style,
 	styleText,
 	small,
+	pressedStyle,
+	pressedTextStyle,
 	...otherProps
 }) => {
 	const { colors } = useTheme();
 	const isPrimary = type === 'primary';
 	const isDisabled = disabled || loading;
+	const [isPressed, setIsPressed] = useState(false);
 
 	const defaultBackgroundColor = isPrimary ? colors.buttonBackgroundPrimaryDefault : colors.buttonBackgroundSecondaryDefault;
 	const disabledBackgroundColor = isPrimary ? colors.buttonBackgroundPrimaryDisabled : colors.buttonBackgroundSecondaryDisabled;
@@ -87,15 +95,29 @@ const Button: React.FC<IButtonProps> = ({
 	];
 
 	return (
-		<Touchable
+		<TouchableOpacity
 			onPress={onPress}
 			disabled={isDisabled}
-			style={containerStyle}
+			style={[
+				containerStyle,
+				isPressed && pressedStyle,
+				isDisabled && styles.disabled
+			]}
+			onPressIn={() => setIsPressed(true)}
+			onPressOut={() => setIsPressed(false)}
 			accessibilityLabel={title}
 			accessibilityRole='button'
 			{...otherProps}>
-			{loading ? <ActivityIndicator color={resolvedTextColor} /> : <Text style={textStyle}>{title}</Text>}
-		</Touchable>
+			{loading ? <ActivityIndicator color={resolvedTextColor} /> : (
+				<Text style={[
+					textStyle,
+					isPressed && pressedTextStyle,
+					isDisabled && styles.disabledText
+				]}>
+					{title}
+				</Text>
+			)}
+		</TouchableOpacity>
 	);
 };
 

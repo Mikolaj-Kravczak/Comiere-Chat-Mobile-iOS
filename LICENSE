@@ -1,22 +1,88 @@
-The MIT License (MIT)
+END USER LICENSE AGREEMENT (EULA) / TERMS OF USE
 
-Copyright (c) 2015-2018 Rocket.Chat Technologies Corp.
+Effective Date: March 1, 2025
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. Introduction
+These Terms of Use ("User Terms" or "EULA" - End User License Agreement) govern Users' access to and use of our software, servers, and any other services ("Services") provided by Comiere Health Technologies Corp. ("Comiere Health," "we," "us," or "our"). These Services include, but are not limited to, Comiere Health Software, Comiere Health Cloud Services, Marketplace, Support Plans, Apps, Professional Services, Integrations (including third-party integrations), and APIs. Additional terms and conditions may also apply.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+These Terms apply to all individuals utilizing Comiere Health Services, whether as direct Comiere Health Users or as Users granted access by a Comiere Health Customer.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+PLEASE READ THESE TERMS OF USE (EULA) CAREFULLY.By clicking "accept," installing, or using Comiere Health Services, you confirm your acceptance of these Terms and agree to be bound by them. This EULA constitutes a binding "Contract" between you ("User") and Comiere Health and applies to any Services you order, subscribe to, activate, or use. Even if you are signing into an existing workspace, these Terms apply to you as a User.
 
+
+2. Definitions
+    - User ("you," "your") – Individuals authorized by a Workspace Administrator to access and use Comiere Health Services.
+    - Customer – Any entity or organization that has agreed to our Customer Terms of Service, enabling them to create and manage a workspace.
+    - Comiere Health Open Server – A dedicated workspace for administrators, users, contributors, and partners to collaborate and improve the platform.
+    - Workspace Administrator – An individual responsible for managing user accounts, configuring settings, ensuring security, and providing technical support within a workspace.
+
+
+3. Additional Terms
+These Terms of Use also incorporate the following additional policies:
+    - Comiere Health Privacy Policy – Details how we collect, store, and use your data.
+    - Comiere Health Code of Conduct – Governs behavior and interactions within Comiere Health Open Server.
+    - Customer-Specific Policies – Customers may impose additional requirements on Users within their respective workspaces.
+
+
+4. User Data
+
+    4.1 Ownership and Control
+        - Users retain ownership of any intellectual property rights in the content they submit to the Services.
+        - Customers have administrative control over data within their workspaces.
+
+    4.2 Deployment Types
+        a) Cloud Hosted – Data is stored securely on Comiere Health's infrastructure.
+        b) Self-Managed Infrastructure – Customer-hosted environments where Comiere Health does not store User-generated content.
+        c) Comiere Health Open Server – A free, open collaboration platform governed by the Comiere Health Code of Conduct.
+
+
+5. Acceptable Use Policy
+    Users must comply with our Acceptable Use Policy, which outlines permitted behaviors and restrictions. Violations may result in suspension or termination of Services.
+
+
+6. Legal Age Requirement
+    Users must meet the minimum age requirement (13 years, or 16+ in GDPR-regulated areas, or 18+ under Brazil’s LGPD unless parental consent is obtained). If you do not meet these requirements, you must discontinue using our Services.
+
+
+7. External Links Disclaimer
+    We may provide links to third-party websites for informational purposes. Comiere Health does not endorse or assume responsibility for any third-party content, services, or resources.
+
+
+8. Acknowledgment
+    Comiere Health acknowledges that certain components of our software integrate with Rocket.Chat Community Code, which is licensed under the MIT License. We respect and comply with the licensing terms of Rocket.Chat, ensuring that all applicable provisions of the MIT License, including attribution and copyright notices, are honored within our platform. The use of MIT-licensed components does not imply endorsement by Rocket.Chat or its contributors.
+
+
+9. Trademark Restrictions
+    Without express written permission, Users may not use Comiere Health's trademarks. Unauthorized use may result in legal consequences.
+
+
+10. Limitation of Liability**
+    Comiere Health provides Services "AS IS" and "AS AVAILABLE," disclaiming all warranties to the fullest extent permitted by law. We are not liable for lost profits, incidental, consequential, or punitive damages. In no event shall our maximum aggregate liability exceed USD $100.
+
+
+11. General Provisions
+
+    11.1 Termination
+        These Terms remain in effect until terminated by the User, Customer, or Comiere Health. If you violate these Terms, we reserve the right to terminate or suspend your access.
+
+    11.2 Survival
+        Provisions related to limitation of liability, indemnification, and dispute resolution survive termination of these Terms.
+
+    11.3 Modifications
+        We may update these Terms periodically. Users will be notified in advance of material changes, and continued use of our Services constitutes acceptance of the revised Terms.
+
+    11.4 Waiver & Severability
+        Failure to enforce any provision of these Terms does not constitute a waiver. If any part of these Terms is deemed unenforceable, the remaining provisions shall continue in effect.
+
+    11.5 Assignment
+        Users may not transfer rights or obligations under these Terms without prior written consent. Comiere Health may assign these Terms in connection with corporate    restructuring or merger.
+
+    11.6 Governing Law
+        These Terms shall be governed by the laws applicable to the Customer Terms of Service. Disputes shall be resolved in courts specified.
+
+
+12. Contacting Comiere Health
+    For any questions regarding this EULA, please contact us at: [legal@comiere.com](mailto:legal@comiere.com)
+
+
+Comiere Health, 721 W IL Route 22, Lake Zurich, IL 60047

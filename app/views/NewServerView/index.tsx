@@ -70,7 +70,7 @@ class NewServerView extends React.Component<INewServerViewProps, INewServerViewS
 			text: '',
 			certificate: null,
 			serversHistory: [],
-			showBottomInfo: true
+			showBottomInfo: false
 		};
 		EventEmitter.addEventListener('NewServer', this.handleNewServerEvent);
 		BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
@@ -287,10 +287,10 @@ class NewServerView extends React.Component<INewServerViewProps, INewServerViewS
 
 		return (
 			<>
-				<Text style={[styles.buttonPrompt, { color: themes[theme].fontSecondaryInfo }]}>
+				{/* <Text style={[styles.buttonPrompt, { color: themes[theme].fontSecondaryInfo }]}>
 					{certificate ? I18n.t('Your_certificate') : I18n.t('Do_you_have_a_certificate')}
-				</Text>
-				<Button
+				</Text> */}
+				{/* <Button
 					onPress={certificate ? this.handleRemove : this.chooseCertificate}
 					testID='new-server-choose-certificate'
 					title={certificate ?? I18n.t('Apply_Certificate')}
@@ -300,7 +300,7 @@ class NewServerView extends React.Component<INewServerViewProps, INewServerViewS
 					fontSize={12}
 					styleText={{ ...sharedStyles.textBold, textAlign: 'center' }}
 					small
-				/>
+				/> */}
 			</>
 		);
 	};
@@ -313,7 +313,7 @@ class NewServerView extends React.Component<INewServerViewProps, INewServerViewS
 		return (
 			<FormContainer
 				style={formContainerStyle}
-				showAppVersion={showBottomInfo}
+				showAppVersion={false}
 				testID='new-server-view'
 				keyboardShouldPersistTaps='handled'>
 				<FormContainerInner accessibilityLabel={I18n.t('Add_server')}>
@@ -323,7 +323,7 @@ class NewServerView extends React.Component<INewServerViewProps, INewServerViewS
 							{
 								marginBottom: 32,
 								marginTop: isTablet ? 0 : marginTop,
-								width: 250,
+								width: 500,
 								height: 50
 							}
 						]}

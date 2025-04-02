@@ -89,19 +89,26 @@ export default class Root extends React.Component<{}, IState> {
 			this.initCrashReport();
 		}
 		const { width, height, scale, fontScale } = Dimensions.get('window');
-		const theme = initialTheme();
+		
+		// Wymuszamy light theme
+		const themePreferences: IThemePreference = {
+			currentTheme: 'light',
+			darkLevel: 'black'
+		};
+		
 		this.state = {
-			theme: getTheme(theme),
-			themePreferences: theme,
+			theme: 'light',
+			themePreferences,
 			width,
 			height,
 			scale,
 			fontScale
 		};
+		
 		if (isTablet) {
 			this.initTablet();
 		}
-		setNativeTheme(theme);
+		setNativeTheme(themePreferences);
 	}
 
 	componentDidMount() {

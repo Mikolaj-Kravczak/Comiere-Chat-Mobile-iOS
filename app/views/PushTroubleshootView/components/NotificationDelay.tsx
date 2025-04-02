@@ -8,7 +8,7 @@ import { useTheme } from '../../../theme';
 export default function NotificationDelay(): React.ReactElement {
 	const { colors } = useTheme();
 
-	const openNotificationDocumentation = () => Linking.openURL('https://go.rocket.chat/i/push-notifications');
+	const openNotificationDocumentation = () => Linking.openURL('https://cic.comiere.chat/docs/push-notifications');
 
 	return (
 		<List.Section title='Notification_delay'>

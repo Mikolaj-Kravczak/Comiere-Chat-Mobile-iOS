@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, ViewStyle } from 'react-native';
-
+import { Linking } from 'react-native';
 import sharedStyles from '../views/Styles';
 import { useTheme } from '../theme';
 import openLink from '../lib/methods/helpers/openLink';
@@ -24,34 +24,33 @@ const styles = StyleSheet.create({
 		textDecorationLine: 'underline'
 	}
 });
-
 const UGCRules = ({ styleContainer }: { styleContainer?: ViewStyle }) => {
 	const { colors, theme } = useTheme();
-	const { server } = useAppSelector(state => ({
-		server: state.server.server
-	}));
 
-	const openContract = (route: string) => {
-		if (!server) {
-			return;
-		}
-		openLink(`${server}/${route}`, theme);
+	const handlePrivacyClick = () => {
+		Linking.openURL('https://comiere.com/privacy-policy/');
 	};
+
+	const handleTermsClick = () => {
+		Linking.openURL('https://comiere.com/term_condition/');
+	};
+
 	return (
 		<View style={[styles.bottomContainer, styleContainer]}>
 			<Text style={[styles.bottomContainerText, { color: colors.fontSecondaryInfo }]}>{I18n.t('Onboarding_agree_terms')}</Text>
 			<Text
 				style={[styles.bottomContainerTextUnderline, styles.bottomContainerText, { color: colors.fontInfo }]}
-				onPress={() => openContract('terms-of-service')}>
-				{I18n.t('Terms_of_Service')}
+				onPress={handleTermsClick}>
+				{/* {I18n.t('Terms & Conditions')} */}
+				Terms & Conditions
 			</Text>
 			<Text
 				style={[styles.bottomContainerTextUnderline, styles.bottomContainerText, { color: colors.fontInfo }]}
-				onPress={() => openContract('privacy-policy')}>
-				{I18n.t('Privacy_Policy')}
+				onPress={handlePrivacyClick}>
+				{/* {I18n.t('Privacy Policy')} */}
+				Privacy Policy
 			</Text>
 		</View>
 	);
 };
-
 export default UGCRules;

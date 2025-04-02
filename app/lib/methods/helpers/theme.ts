@@ -11,20 +11,15 @@ import { isAndroid } from './deviceInfo';
 let themeListener: { remove: () => void } | null;
 
 export const initialTheme = (): IThemePreference => {
-	const theme = UserPreferences.getMap(THEME_PREFERENCES_KEY) as IThemePreference;
-	const initialTheme: IThemePreference = {
-		currentTheme: defaultTheme(),
-		darkLevel: 'black'
+	// Zawsze zwracamy jasny motyw, ignorując ustawienia zapisane i systemowe
+	return {
+		currentTheme: 'light',
+		darkLevel: 'black' // ta wartość nie ma znaczenia przy light theme
 	};
-	return theme || initialTheme;
 };
 
 export const defaultTheme = (): TThemeMode => {
-	const systemTheme = Appearance.getColorScheme();
-	if (systemTheme) {
-		return systemTheme;
-	}
-	return 'light';
+	return 'light'; // zawsze zwraca light, ignorując systemTheme
 };
 
 export const getTheme = (themePreferences: IThemePreference): TSupportedThemes => {
@@ -33,7 +28,7 @@ export const getTheme = (themePreferences: IThemePreference): TSupportedThemes =
 	if (currentTheme === 'automatic') {
 		theme = defaultTheme();
 	}
-	return theme === 'dark' ? darkLevel : 'light';
+	return theme === 'light' ? darkLevel : 'light';
 };
 
 export const newThemeState = (prevState: { themePreferences: IThemePreference }, newTheme: IThemePreference) => {
@@ -70,13 +65,7 @@ export const unsubscribeTheme = () => {
 };
 
 export const subscribeTheme = (themePreferences: IThemePreference, setTheme: () => void): void => {
-	const { currentTheme } = themePreferences;
-	if (!themeListener && currentTheme === 'automatic') {
-		// not use listener params because we use getTheme
-		themeListener = Appearance.addChangeListener(() => setTheme());
-	} else if (currentTheme !== 'automatic') {
-		// unsubscribe appearance changes when automatic was disabled
-		unsubscribeTheme();
-	}
+	// Usuwamy subskrypcję na zmiany motywu systemowego
+	unsubscribeTheme();
 	setNativeTheme(themePreferences);
 };

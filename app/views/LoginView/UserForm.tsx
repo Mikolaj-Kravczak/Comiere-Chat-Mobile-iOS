@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Keyboard, Text, View, Alert } from 'react-native';
+import { Keyboard, Text, View, Alert, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -28,6 +28,49 @@ interface ISubmit {
 const schema = yup.object().shape({
 	user: yup.string().required(),
 	password: yup.string().required()
+});
+
+const loginButtonStyles = StyleSheet.create({
+	button: {
+		borderWidth: 2,
+		borderColor: '#FD4D6E',
+		backgroundColor: '#fff',
+		paddingVertical: 5,
+		paddingHorizontal: 15,
+		width: 200,
+		borderRadius: 28,
+		alignSelf: 'center',
+	},
+	buttonText: {
+		color: '#FD4D6E',
+		fontSize: 14,
+		fontWeight: '500',
+		letterSpacing: 2,
+		textTransform: 'uppercase',
+		fontFamily: 'Montserrat',
+		textAlign: 'center',
+	},
+	buttonPressed: {
+		backgroundColor: '#FD4D6E',
+	},
+	buttonPressedText: {
+		color: '#fff',
+	},
+	buttonEnabled: {
+		backgroundColor: '#FD4D6E',
+	},
+	buttonEnabledText: {
+		color: '#fff',
+	},
+	buttonDisabled: {
+		borderColor: '#FD4D6E',
+		backgroundColor: '#fff',
+		opacity: 1
+	},
+	buttonDisabledText: {
+		color: '#FD4D6E',
+		opacity: 1
+	}
 });
 
 const UserForm = () => {
@@ -129,11 +172,23 @@ const UserForm = () => {
 					autoComplete='password'
 				/>
 				<Button
-					title={I18n.t('Login')}
+					title='Sign in'
 					onPress={handleSubmit(submit)}
 					testID='login-view-submit'
 					loading={isFetching}
 					disabled={!isValid}
+					style={[
+						loginButtonStyles.button,
+						isValid ? loginButtonStyles.buttonEnabled : loginButtonStyles.buttonDisabled,
+						{ opacity: 1 }
+					]}
+					styleText={[
+						loginButtonStyles.buttonText,
+						isValid ? loginButtonStyles.buttonEnabledText : loginButtonStyles.buttonDisabledText,
+						{ opacity: 1 }
+					]}
+					pressedStyle={loginButtonStyles.buttonPressed}
+					pressedTextStyle={loginButtonStyles.buttonPressedText}
 				/>
 			</View>
 			<View style={styles.bottomContainer}>

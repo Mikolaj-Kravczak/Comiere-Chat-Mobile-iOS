@@ -17,7 +17,7 @@ const DARK_GROUP = 'DARK_GROUP';
 
 const SYSTEM_THEME: ITheme = {
 	label: 'Automatic',
-	value: 'automatic',
+	value: 'light',
 	group: THEME_GROUP
 };
 
@@ -26,27 +26,8 @@ const THEMES: ITheme[] = [
 		label: 'Light',
 		value: 'light',
 		group: THEME_GROUP
-	},
-	{
-		label: 'Dark',
-		value: 'dark',
-		group: THEME_GROUP
-	},
-	{
-		label: 'Black',
-		value: 'black',
-		group: DARK_GROUP
-	},
-	{
-		label: 'Dark',
-		value: 'dark',
-		group: DARK_GROUP
 	}
 ];
-
-if (supportSystemTheme()) {
-	THEMES.unshift(SYSTEM_THEME);
-}
 
 const themeGroup = THEMES.filter(item => item.group === THEME_GROUP);
 const darkGroup = THEMES.filter(item => item.group === DARK_GROUP);
@@ -146,7 +127,7 @@ const ThemeView = (): React.ReactElement => {
 						))}
 					</>
 				</List.Section>
-				<List.Section title='Dark_level'>
+				{/* <List.Section title='Dark_level'>
 					<List.Separator />
 					<>
 						{darkGroup.map(theme => (
@@ -159,7 +140,7 @@ const ThemeView = (): React.ReactElement => {
 							/>
 						))}
 					</>
-				</List.Section>
+				</List.Section> */}
 			</List.Container>
 		</SafeAreaView>
 	);

@@ -157,13 +157,18 @@ const SettingsView = (): React.ReactElement => {
 	};
 
 	const copyAppVersion = () => {
-		logEvent(events.SE_COPY_APP_VERSION, { appVersion: getReadableVersion });
-		saveToClipboard(getReadableVersion);
+		logEvent(events.SE_COPY_APP_VERSION, { appVersion: 'cic.comiere.com' });
+		saveToClipboard('cic.comiere.com');
 	};
 
 	const onPressLicense = () => {
 		logEvent(events.SE_READ_LICENSE);
 		openLink(LICENSE_LINK, theme);
+	};
+
+	const handleGetHelp = () => {
+		logEvent(events[`SE_GO_GETHELP` as TLogScreenName]);
+		openLink('https://cic.comiere.com', theme);
 	};
 
 	return (
@@ -246,9 +251,11 @@ const SettingsView = (): React.ReactElement => {
 					<List.Item
 						title='Get_help'
 						left={() => <List.Icon name='support' />}
-						showActionIndicator
-						onPress={() => navigateToScreen('GetHelpView')}
+						//showActionIndicator
+						onPress={handleGetHelp}
 						testID='settings-view-get-help'
+						right={() => <NewWindowIcon />}
+						accessibilityRole='link'
 					/>
 					<List.Separator />
 					<List.Item
@@ -267,15 +274,15 @@ const SettingsView = (): React.ReactElement => {
 						left={() => <List.Icon name='book' />}
 					/>
 					<List.Separator />
-					<List.Item
+					{/* <List.Item
 						title='Contact_us'
 						accessibilityRole='link'
 						onPress={sendEmail}
 						testID='settings-view-contact'
 						left={() => <List.Icon name='mail' />}
 						right={() => <NewWindowIcon />}
-					/>
-					<List.Separator />
+					/> */}
+					{/* <List.Separator /> */}
 					{!isFDroidBuild ? (
 						<>
 							<List.Item

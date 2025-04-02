@@ -45,6 +45,46 @@ const styles = StyleSheet.create({
 	},
 	loginButton: {
 		marginTop: 12
+	},
+	button: {
+		borderWidth: 2,
+		borderColor: '#FD4D6E',
+		backgroundColor: '#fff',
+		paddingVertical: 5,
+		paddingHorizontal: 15,
+		width: 200,
+		borderRadius: 28,
+		alignSelf: 'center',
+	},
+	buttonText: {
+		color: '#FD4D6E',
+		fontSize: 14,
+		fontWeight: '500',
+		letterSpacing: 2,
+		textTransform: 'uppercase',
+		fontFamily: 'Montserrat',
+		textAlign: 'center',
+	},
+	buttonPressed: {
+		backgroundColor: '#FD4D6E',
+	},
+	buttonPressedText: {
+		color: '#fff',
+	},
+	buttonEnabled: {
+		backgroundColor: '#FD4D6E',
+	},
+	buttonEnabledText: {
+		color: '#fff',
+	},
+	buttonDisabled: {
+		borderColor: '#FD4D6E',
+		backgroundColor: '#fff',
+		opacity: 1
+	},
+	buttonDisabledText: {
+		color: '#FD4D6E',
+		opacity: 1
 	}
 });
 
@@ -294,13 +334,24 @@ class RegisterView extends React.Component<IProps, any> {
 					{this.renderCustomFields()}
 
 					<Button
-						title={I18n.t('Register')}
-						type='primary'
+						title='Sign up'
 						onPress={this.submit}
 						testID='register-view-submit'
 						disabled={!this.valid()}
 						loading={saving}
-						style={styles.registerButton}
+						style={[
+							styles.button,
+							this.valid() ? styles.buttonEnabled : styles.buttonDisabled,
+							styles.registerButton,
+							{ opacity: 1 }
+						]}
+						styleText={[
+							styles.buttonText,
+							this.valid() ? styles.buttonEnabledText : styles.buttonDisabledText,
+							{ opacity: 1 }
+						]}
+						pressedStyle={styles.buttonPressed}
+						pressedTextStyle={styles.buttonPressedText}
 					/>
 
 					{showLoginButton ? (
@@ -308,7 +359,7 @@ class RegisterView extends React.Component<IProps, any> {
 							<Text style={[styles.bottomContainerText, { color: themes[theme].fontSecondaryInfo }]}>
 								{I18n.t('Already_have_an_account')}
 							</Text>
-							<Button title={I18n.t('Login')} type='secondary' onPress={this.login} style={styles.loginButton} />
+							<Button title='Sign in' type='secondary' onPress={this.login} style={styles.loginButton} />
 						</View>
 					) : null}
 

@@ -135,9 +135,9 @@ const ServersList = () => {
 			testID='rooms-list-header-servers-list'>
 			<View style={[styles.serversListContainerHeader, styles.serverHeader, { borderColor: colors.strokeLight }]}>
 				<Text style={[styles.serverHeaderText, { color: colors.fontSecondaryInfo }]}>{I18n.t('Server')}</Text>
-				<TouchableOpacity onPress={addServer} testID='rooms-list-header-server-add'>
+				{/* <TouchableOpacity onPress={addServer} testID='rooms-list-header-server-add'>
 					<Text style={[styles.serverHeaderAdd, { color: colors.fontInfo }]}>{I18n.t('Add_Server')}</Text>
-				</TouchableOpacity>
+				</TouchableOpacity> */}
 			</View>
 			<FlatList
 				style={{ maxHeight: MAX_ROWS * ROW_HEIGHT }}
@@ -148,7 +148,7 @@ const ServersList = () => {
 				keyboardShouldPersistTaps='always'
 			/>
 			<List.Separator />
-			<Button
+			{/* <Button
 				title={I18n.t('Create_a_new_workspace')}
 				type='secondary'
 				onPress={createWorkspace}
@@ -157,7 +157,7 @@ const ServersList = () => {
 				color={colors.badgeBackgroundLevel2}
 				backgroundColor={colors.surfaceRoom}
 				styleText={[styles.serverHeaderAdd, { textAlign: 'center', color: colors.fontInfo }]}
-			/>
+			/> */}
 		</View>
 	);
 };
